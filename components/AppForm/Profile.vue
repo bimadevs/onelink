@@ -50,10 +50,111 @@
             @input="$emit('update:image', $event.target.value)"
           />
         </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Color Theme</label>
+          <div class="grid grid-cols-5 gap-2">
+            <div 
+              v-for="(theme, index) in colorThemes" 
+              :key="index"
+              class="w-full aspect-square rounded-lg cursor-pointer p-1"
+              :class="{ 'ring-2 ring-offset-2 ring-offset-white': selectedTheme === theme.id }"
+              @click="selectTheme(theme.id)"
+            >
+              <div 
+                class="h-full w-full rounded-md border"
+                :style="{ background: `linear-gradient(45deg, ${theme.colors.primary}, ${theme.colors.secondary})` }"
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </base-form-section>
 </template>
 <script setup>
-const props = defineProps(["name", "desc", "image"]);
+const colorThemes = [
+  {
+    id: 'indigo',
+    name: 'Indigo',
+    colors: {
+      primary: '#4f46e5',
+      secondary: '#818cf8',
+      background: 'white',
+      text: '#1e293b'
+    }
+  },
+  {
+    id: 'emerald',
+    name: 'Emerald',
+    colors: {
+      primary: '#10b981',
+      secondary: '#34d399',
+      background: 'white',
+      text: '#1e293b'
+    }
+  },
+  {
+    id: 'rose',
+    name: 'Rose',
+    colors: {
+      primary: '#e11d48',
+      secondary: '#fb7185',
+      background: 'white',
+      text: '#1e293b'
+    }
+  },
+  {
+    id: 'amber',
+    name: 'Amber',
+    colors: {
+      primary: '#f59e0b',
+      secondary: '#fbbf24',
+      background: 'white',
+      text: '#1e293b'
+    }
+  },
+  {
+    id: 'sky',
+    name: 'Sky',
+    colors: {
+      primary: '#0ea5e9',
+      secondary: '#38bdf8',
+      background: 'white',
+      text: '#1e293b'
+    }
+  },
+];
+
+const props = defineProps({
+  name: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  desc: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  image: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  theme: {
+    type: String,
+    required: false,
+    default: "indigo"
+  }
+});
+
+const selectedTheme = ref(props.theme);
+
+const selectTheme = (themeId) => {
+  selectedTheme.value = themeId;
+  emit('update:theme', themeId);
+};
+
+const emit = defineEmits(['update:name', 'update:desc', 'update:image', 'update:theme']);
 </script>
