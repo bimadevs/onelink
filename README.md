@@ -1,67 +1,111 @@
----
-Build and Ship Nuxt 3 fullstack starter apps with Auth, DB, Payments, Email & File storage 
-
-Try [Supersaas today](https://supersaas.dev)
----
-
-
-[<img src="https://essentials.supersaas.dev/supersaas-banner.png">](https://supersaas.dev?ref=github-onelink)
 
 # Onelink
 
-Onelink is an experimental link-in-bio tool, where the data lives in the URL. 
+Onelink adalah alat link-in-bio yang praktis dan elegan untuk membuat halaman landing profil sederhana dengan semua link sosial media dan konten penting Anda. Berbeda dengan alat serupa, Onelink menawarkan dua opsi penyimpanan data:
+
+1. **Enkoding URL** - data disimpan langsung dalam URL (versi original)
+2. **ID Pendek** - data disimpan dalam localStorage dan diakses via ID pendek 5 karakter (fitur baru)
+
+<!-- 
+Tambahkan screenshot aplikasi Anda di sini:
+![Onelink Screenshot](https://link-ke-screenshot-anda.jpg)
+-->
+
+## 🌟 Fitur
+
+- 🔗 Buat profil dengan link sosial media dan link kustom lainnya
+- 🎨 Pilih dari beberapa tema warna (indigo, emerald, rose, amber, sky)
+- 📱 Tampilan responsif untuk mobile, tablet, dan desktop
+- 🖼️ Dua template berbeda: Simple dan Card
+- 🔍 Preview real-time saat membuat profil
+- 📝 URL pendek dengan hanya 5 karakter untuk berbagi lebih mudah
+- 🔒 Tidak memerlukan database - data disimpan di localStorage browser
 
 
+## 🚀 Installasi Lokal
 
-![Screenshot2023-01-30 at 00 40 04@2x](https://user-images.githubusercontent.com/15716057/215350057-5fbf81f5-5f33-4cbe-98ba-0ced8b3c09c8.jpg)
-
-> **Note**
-> Since the URL can become very long, it's better to use a link shortener like https://dub.co
-
-Here's a demo page
-https://onelink-nu.vercel.app/1?data=eyJuIjoiSm9obiBTbm93IiwiZCI6IknigJltIEpvaG4gU25vdywgdGhlIGtpbmcgaW4gdGhlIG5vcnRoLiBJIGtub3cgTm90aGluZy4iLCJpIjoiaHR0cHM6Ly9pLmluc2lkZXIuY29tLzU2NzQzZmFkNzJmMmMxMmEwMDhiNmNjMCIsImYiOiJodHRwczovL3d3dy5mYWNlYm9vay5jb20vam9obl9zbm93IiwidCI6Imh0dHBzOi8vdHdpdHRlci5jb20vam9obl9zbm93IiwiaWciOiJodHRwczovL3d3dy5pbnN0YWdyYW0uY29tL2pvaG5fc25vdyIsImUiOiJtYWlsQGpvaG5fc25vdy5jYyIsImdoIjoiaHR0cHM6Ly9naXRodWIuY29tL2pvaG5fc25vdyIsInRnIjoiaHR0cHM6Ly90Lm1lL2pvaG5fc25vdyIsInciOiIrOTE4ODg4ODg4ODg4IiwieSI6Imh0dHBzOi8veW91dHViZS5jb20vQGpvaG5fc25vdyIsImwiOiJodHRwczovL2xpbmtlZGluLmNvbS9qb2huX3Nub3ciLCJscyI6W3sibCI6Ik15IFdlYnNpdGUiLCJpIjoicGg6Z2xvYmUtZHVvdG9uZSIsInUiOiJodHRwczovL2V4YW1wbGUuY29tIn0seyJsIjoiQW1hem9uIHdpc2hsaXN0IiwiaSI6ImFudC1kZXNpZ246YW1hem9uLW91dGxpbmVkIiwidSI6Imh0dHBzOi8vYW1hem9uLmluIn0seyJsIjoiUmVhY3QgSlMgY291cnNlIiwiaSI6Imdyb21tZXQtaWNvbnM6cmVhY3RqcyIsInUiOiJodHRwczovL3JlYWN0anMub3JnLyJ9LHsibCI6IkRvbmF0ZSBmb3Igb3VyIGNhdXNlIiwiaSI6Imljb25vaXI6ZG9uYXRlIiwidSI6Imh0dHBzOi8vd2hvLmludCJ9LHsibCI6IkRvd25sb2FkIG15IHJlc3VtZSIsImkiOiJwaDpmaWxlLXBkZiIsInUiOiJodHRwczovL2dvb2dsZS5jb20ifV19
-
-The data is converted to a base 64 string which we onelink uses as a query parameter. I have tried to reduce the json keys to be as small as possible
-
-Roadmap.
-1. Templates - make different templates, the `/1` after the host is basically a template here.
-2. Refactor code - a lot of repeated boilerplate code is added here - refactor it properly.
-
-## Setup locally
-
-Make sure to install the dependencies:
+Pastikan untuk menginstal dependensi:
 
 ```bash
 # yarn
-yarn install
+yarn install --ignore-engines
 
 # npm
 npm install
 
 # pnpm
-pnpm install --shamefully-hoist
+pnpm install
 ```
 
-## Development Server
+## 💻 Server Pengembangan
 
-Start the development server on http://localhost:3000
+Mulai server pengembangan di http://localhost:3000
 
 ```bash
+yarn dev
+# atau
 npm run dev
 ```
 
-## Production
+## 🏗️ production
 
-Build the application for production:
+Build aplikasi untuk production:
 
 ```bash
+yarn build
+# atau
 npm run build
 ```
 
-Locally preview production build:
+Preview build production secara lokal:
 
 ```bash
+yarn preview
+# atau
 npm run preview
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+## 🌐 Deploy ke Production
+
+Onelink dapat dengan mudah di-deploy ke platform seperti Vercel, Netlify, atau layanan hosting statis lainnya.
+
+### Deploy ke Vercel (Rekomendasi)
+
+1. Buat akun di [Vercel](https://vercel.com) jika belum memilikinya
+2. Install Vercel CLI: `npm i -g vercel`
+3. Jalankan `vercel` di folder proyek
+4. Ikuti instruksi untuk menghubungkan ke akun Vercel Anda
+
+### Deploy ke Netlify
+
+1. Buat akun di [Netlify](https://netlify.com)
+2. Drag and drop folder `dist` (setelah `npm run build`) ke dashboard Netlify
+   atau
+3. Hubungkan dengan repositori GitHub Anda dan konfigurasikan build command: `npm run build`
+
+## 🛠️ Teknologi yang Digunakan
+
+- [Nuxt.js 3](https://nuxt.com/) - Framework Vue.js
+- [Tailwind CSS](https://tailwindcss.com/) - Untuk styling
+- [lz-string](https://github.com/pieroxy/lz-string) - Untuk kompresi data
+- [js-base64](https://github.com/dankogai/js-base64) - Untuk enkoding/dekoding data
+- [Nuxt Icon](https://github.com/nuxt-modules/icon) - Untuk ikon
+
+## 🔄 Roadmap
+
+1. ✅ URL Pendek - Implementasi ID pendek 5 karakter
+2. ✅ Multiple Templates - Simple dan Card templates
+3. 🔲 Database Integrasi - Opsi untuk menyimpan data di database eksternal
+4. 🔲 Analitik - Pelacakan klik dan interaksi pengunjung
+5. 🔲 Domain Kustom - Dukungan untuk domain dan subdomain kustom
+6. 🔲 SEO Optimization - Meta tags dan fitur SEO lainnya
+
+## 🤝 Kontribusi
+
+Kontribusi, masalah, dan permintaan fitur sangat diterima!
+
+## 📄 Lisensi
+
+[MIT](LICENSE)
+
+duksi, pertimbangkan untuk mengganti `localStorage` dengan database seperti Firebase, MongoDB, atau layanan penyimpanan lainnya.
